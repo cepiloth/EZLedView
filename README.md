@@ -1,4 +1,4 @@
-# EZLedView
+# EZLedView For Kotlin
 
 
 <img src="./img/img_head.gif?raw=true" alt="Example" width="200" />
