@@ -1,19 +1,20 @@
 package com.goyourfly.ezledview.app
 
 import android.content.Intent
-import android.support.annotation.IdRes
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.RadioGroup
 import android.widget.SeekBar
-
 import com.goyourfly.ezledview.EZLedView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
     private var ledView: EZLedView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -73,14 +74,21 @@ class MainActivity : AppCompatActivity() {
 
             }
         })
+
+
+
         //
         setRadioCheckListener(R.id.led_type, RadioGroup.OnCheckedChangeListener { group, checkedId ->
             if (checkedId == R.id.rb_text) {
-                ledView!!.setText("HELLO, I LOVE U VERY MUCH!!!")
+                onTextEdit(true)
+                ledView!!.setText("write your message")
             } else {
+                onTextEdit(false)
                 ledView!!.setDrawable(resources.getDrawable(R.drawable.simpson))
             }
         })
+
+
         //
         setRadioCheckListener(R.id.point_type, RadioGroup.OnCheckedChangeListener { group, checkedId ->
             if (checkedId == R.id.rb_circle) {
@@ -94,6 +102,21 @@ class MainActivity : AppCompatActivity() {
             ledView!!.invalidate()
         })
 
+        onTextEdit(true)
+    }
+
+    /*
+     * @brief : on off
+     */
+    private fun onTextEdit(on: Boolean) {
+
+        if(on) {
+            et_text_view.visibility = View.VISIBLE
+            et_text.visibility = View.VISIBLE
+        } else {
+            et_text_view.visibility = View.INVISIBLE
+            et_text.visibility = View.INVISIBLE
+        }
     }
 
     private fun setRadioCheckListener(id: Int, listener: RadioGroup.OnCheckedChangeListener) {
@@ -107,8 +130,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.action_led)
-            startActivity(Intent(this, LedDisplayActivity::class.java))
+        if (item.itemId == R.id.action_led) {
+            val intent = Intent(this, LedDisplayActivity::class.java);
+            intent.putExtra("content", et_text.text)
+            startActivity(intent)
+        }
         return super.onOptionsItemSelected(item)
     }
 }

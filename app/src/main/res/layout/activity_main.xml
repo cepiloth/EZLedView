@@ -42,6 +42,18 @@
         </RadioGroup>
 
         <TextView
+            android:id="@+id/et_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text" />
+
+        <EditText
+            android:id="@+id/et_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="write your message "/>
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -121,6 +133,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimaryDark"
+            android:layout_gravity="center"
             app:image="@drawable/simpson"
             app:led_color="@color/colorAccent"
             app:text_size="180dp" />

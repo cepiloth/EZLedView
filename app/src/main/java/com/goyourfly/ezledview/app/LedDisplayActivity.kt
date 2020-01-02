@@ -15,19 +15,29 @@ class LedDisplayActivity : AppCompatActivity() {
     internal var scrollX = 0
     internal var direct = 1
 
+    private fun onInitWindow() {
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        setContentView(R.layout.activity_led_display)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        requestWindowFeature(Window.FEATURE_NO_TITLE)
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        setContentView(R.layout.activity_led_display)
+
+        onInitWindow()
+
         val uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
+
         window.decorView.systemUiVisibility = uiOptions
-        if (supportActionBar != null)
+
+        if (supportActionBar != null) {
             supportActionBar!!.hide()
+        }
 
         val scrollView = findViewById<View>(R.id.scrollView) as HorizontalScrollView
         val ledView = findViewById<View>(R.id.ledView) as EZLedView
+
+        ledView!!.setDrawable(resources.getDrawable(R.drawable.simpson))
 
         handler.post(object : Runnable {
             override fun run() {
