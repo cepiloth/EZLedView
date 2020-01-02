@@ -36,25 +36,30 @@ class LedDisplayActivity : AppCompatActivity() {
         if(intent.hasExtra("type")) {
             var str = intent.getStringExtra("type")
 
-            if(str == "image")
+            if(str == "image") {
                 ledView!!.setDrawable(resources.getDrawable(R.drawable.simpson))
-        }
 
-        handler.post(object : Runnable {
-            override fun run() {
-                scrollView.scrollTo(scrollX, 0)
-                scrollX += (ledView.ledRadius + ledView.ledSpace) * direct
+                handler.post(object : Runnable {
+                    override fun run() {
+                        scrollView.smoothScrollBy(scrollX, 0)
+                        scrollX += 100
 
-                var width = ledView.width;
-                if(width < 3000) {
-                    width = 3000;
-                }
-                if (scrollX <= 0 || scrollX >= width - scrollView.width) {
-                    direct = -direct
-                }
-                handler.postDelayed(this, 10)
+                        handler.postDelayed(this, 100)
+                    }
+                })
+            } else {
+                handler.post(object : Runnable {
+                    override fun run() {
+                        scrollView.scrollTo(scrollX, 0)
+                        scrollX += (ledView.ledRadius + ledView.ledSpace) * direct
+
+                        if (scrollX <= 0 || scrollX >= ledView.width - scrollView.width) {
+                            direct = -direct
+                        }
+                        handler.postDelayed(this, 10)
+                    }
+                })
             }
-        })
-
+        }
     }
 }
