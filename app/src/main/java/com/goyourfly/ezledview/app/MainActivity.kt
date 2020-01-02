@@ -132,7 +132,14 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.action_led) {
             val intent = Intent(this, LedDisplayActivity::class.java);
-            intent.putExtra("content", et_text.text)
+
+            if(rb_image.isChecked) {
+                intent.putExtra("type", "image")
+            } else {
+                intent.putExtra("type", "text")
+                intent.putExtra("content", et_text.text)
+            }
+
             startActivity(intent)
         }
         return super.onOptionsItemSelected(item)
