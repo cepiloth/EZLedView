@@ -134,7 +134,7 @@
             android:layout_height="match_parent"
             android:background="@color/colorPrimaryDark"
             android:layout_gravity="center"
-            app:image="@drawable/simpson"
+            app:image="@drawable/choi"
             app:led_color="@color/colorAccent"
             app:text_size="180dp" />
     </HorizontalScrollView>

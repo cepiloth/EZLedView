@@ -1,5 +1,7 @@
 package com.goyourfly.ezledview.app
 
+import android.graphics.*
+import android.graphics.drawable.BitmapDrawable
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +11,14 @@ import android.view.WindowManager
 import android.widget.HorizontalScrollView
 
 import com.goyourfly.ezledview.EZLedView
+import android.graphics.BitmapFactory
+import android.graphics.Bitmap
+import android.R.attr.bitmap
+import android.graphics.drawable.Drawable
+
+
+
+
 
 class LedDisplayActivity : AppCompatActivity() {
     internal var handler = Handler()
@@ -32,34 +42,36 @@ class LedDisplayActivity : AppCompatActivity() {
 
         val scrollView = findViewById<View>(R.id.scrollView) as HorizontalScrollView
         val ledView = findViewById<View>(R.id.ledView) as EZLedView
-
+        ledView!!.ledRadius = 3
         if(intent.hasExtra("type")) {
             var str = intent.getStringExtra("type")
 
             if(str == "image") {
-                ledView!!.setDrawable(resources.getDrawable(R.drawable.simpson))
+                val drawble:Bitmap = BitmapFactory.decodeResource(resources, R.drawable.choi)
 
-                handler.post(object : Runnable {
-                    override fun run() {
-                        scrollView.smoothScrollBy(scrollX, 0)
-                        scrollX += 100
+                val paint = Paint()
+                paint.setShader(BitmapShader(drawble, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT))
 
-                        handler.postDelayed(this, 100)
-                    }
-                })
-            } else {
-                handler.post(object : Runnable {
-                    override fun run() {
-                        scrollView.scrollTo(scrollX, 0)
-                        scrollX += (ledView.ledRadius + ledView.ledSpace) * direct
+                val bitmap:Bitmap = Bitmap.createBitmap(drawble.width * 2, drawble.height, Bitmap.Config.RGB_565)
+                val canvas = Canvas(bitmap)
+                val rect = Rect(0,0,drawble.width * 2, drawble.height)
+                canvas.drawRect(rect, paint)
 
-                        if (scrollX <= 0 || scrollX >= ledView.width - scrollView.width) {
-                            direct = -direct
-                        }
-                        handler.postDelayed(this, 10)
-                    }
-                })
+                val drawable = BitmapDrawable(bitmap)
+                ledView.setDrawable(drawable)
             }
+
+            handler.post(object : Runnable {
+                override fun run() {
+                    scrollView.scrollTo(scrollX, 0)
+                    scrollX += (ledView.ledRadius + ledView.ledSpace) * direct
+
+                    if (scrollX <= 0 || scrollX >= ledView.width - scrollView.width) {
+                        direct = -direct
+                    }
+                    handler.postDelayed(this, 10)
+                }
+            })
         }
     }
 }

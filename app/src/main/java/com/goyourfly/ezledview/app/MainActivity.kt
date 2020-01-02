@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
                 ledView!!.setText("write your message")
             } else {
                 onTextEdit(false)
-                ledView!!.setDrawable(resources.getDrawable(R.drawable.simpson))
+                ledView!!.setDrawable(resources.getDrawable(R.drawable.choi))
             }
         })
 
