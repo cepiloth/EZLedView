@@ -29,7 +29,7 @@ class LedDisplayActivity : AppCompatActivity() {
         if (supportActionBar != null) {
             supportActionBar!!.hide()
         }
-        led_display_led_view!!.ledRadius = 3
+        //led_display_led_view!!.ledRadius = 3
 
         setup()
 
@@ -55,6 +55,9 @@ class LedDisplayActivity : AppCompatActivity() {
 
                 val drawable = BitmapDrawable(bitmap)
                 led_display_led_view.setDrawable(drawable)
+            } else {
+                var content = intent.getStringExtra("content")
+                led_display_led_view.setText(content)
             }
         }
     }

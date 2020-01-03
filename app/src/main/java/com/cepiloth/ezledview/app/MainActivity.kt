@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
         //
         setRadioCheckListener(R.id.led_type, RadioGroup.OnCheckedChangeListener { group, checkedId ->
             if (checkedId == R.id.rb_text) {
-                ledView!!.setText("write your message")
+                ledView!!.setText("ご_ご ご_ご")
             } else {
                 ledView!!.setDrawable(resources.getDrawable(R.drawable.choi))
             }
@@ -106,7 +106,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            ledView!!.setText(s.toString())
+
+            if (!s.isNullOrEmpty()) {
+                ledView!!.setText(s.toString())
+            } else {
+                ledView!!.setText(" ");
+            }
         }
 
     }
@@ -129,7 +134,7 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("type", "image")
             } else {
                 intent.putExtra("type", "text")
-                intent.putExtra("content", et_text.text)
+                intent.putExtra("content", et_text.text.toString())
             }
 
             startActivity(intent)

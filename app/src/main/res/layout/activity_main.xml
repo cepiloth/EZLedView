@@ -99,7 +99,7 @@
                 android:id="@+id/et_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="write your message " />
+                android:text="ご_ご ご_ご" />
         </LinearLayout>
 
         <LinearLayout
@@ -155,7 +155,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#9b0000"
-                android:text="Led Size" />
+                android:text="Led Size"
+                android:textColor="@color/primaryTextColor" />
 
             <SeekBar
                 android:id="@+id/seekbarCircle"
