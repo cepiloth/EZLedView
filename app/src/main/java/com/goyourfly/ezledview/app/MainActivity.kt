@@ -2,12 +2,12 @@ package com.goyourfly.ezledview.app
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.RadioGroup
 import android.widget.SeekBar
+import androidx.appcompat.app.AppCompatActivity
 import com.goyourfly.ezledview.EZLedView
 import kotlinx.android.synthetic.main.activity_main.*
 

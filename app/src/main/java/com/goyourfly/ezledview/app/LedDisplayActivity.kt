@@ -2,22 +2,14 @@ package com.goyourfly.ezledview.app
 
 import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
-import android.os.Handler
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.HorizontalScrollView
-
+import androidx.appcompat.app.AppCompatActivity
 import com.goyourfly.ezledview.EZLedView
-import android.graphics.BitmapFactory
-import android.graphics.Bitmap
-import android.R.attr.bitmap
-import android.graphics.drawable.Drawable
-
-
-
 
 
 class LedDisplayActivity : AppCompatActivity() {
