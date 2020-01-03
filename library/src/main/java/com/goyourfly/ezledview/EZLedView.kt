@@ -11,7 +11,7 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Build
-import android.support.annotation.AttrRes
+import androidx.annotation.AttrRes
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.View

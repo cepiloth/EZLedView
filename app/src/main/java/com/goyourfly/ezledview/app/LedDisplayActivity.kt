@@ -3,7 +3,7 @@ package com.goyourfly.ezledview.app
 import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import android.os.Handler
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.Window
