@@ -35,7 +35,10 @@ class LedDisplayActivity : AppCompatActivity() {
         val scrollView = findViewById<View>(R.id.scrollView) as HorizontalScrollView
         val ledView = findViewById<View>(R.id.ledView) as EZLedView
         ledView!!.ledRadius = 3
-        if(intent.hasExtra("type")) {
+
+        val hasExtra = intent.hasExtra("type")
+
+        if(hasExtra) {
             var str = intent.getStringExtra("type")
 
             if(str == "image") {
@@ -52,18 +55,18 @@ class LedDisplayActivity : AppCompatActivity() {
                 val drawable = BitmapDrawable(bitmap)
                 ledView.setDrawable(drawable)
             }
-
-            handler.post(object : Runnable {
-                override fun run() {
-                    scrollView.scrollTo(scrollX, 0)
-                    scrollX += (ledView.ledRadius + ledView.ledSpace) * direct
-
-                    if (scrollX <= 0 || scrollX >= ledView.width - scrollView.width) {
-                        direct = -direct
-                    }
-                    handler.postDelayed(this, 10)
-                }
-            })
         }
+
+        handler.post(object : Runnable {
+            override fun run() {
+                scrollView.scrollTo(scrollX, 0)
+                scrollX += (ledView.ledRadius + ledView.ledSpace) * direct
+
+                if (scrollX <= 0 || scrollX >= ledView.width - scrollView.width) {
+                    direct = -direct
+                }
+                handler.postDelayed(this, 10)
+            }
+        })
     }
 }

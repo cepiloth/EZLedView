@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         val circleRadius = findViewById<View>(R.id.seekbarCircle) as SeekBar
         circleRadius.progress = ledView!!.ledRadius
+
         circleRadius.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 if (progress < 2)
@@ -74,8 +75,6 @@ class MainActivity : AppCompatActivity() {
 
             }
         })
-
-
 
         //
         setRadioCheckListener(R.id.led_type, RadioGroup.OnCheckedChangeListener { group, checkedId ->
