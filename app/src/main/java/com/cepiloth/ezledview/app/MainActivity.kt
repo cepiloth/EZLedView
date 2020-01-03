@@ -2,6 +2,8 @@ package com.cepiloth.ezledview.app
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -57,7 +59,6 @@ class MainActivity : AppCompatActivity() {
                 ledView!!.ledTextSize = progress
                 ledView!!.requestLayout()
                 ledView!!.invalidate()
-
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar) {
@@ -72,10 +73,8 @@ class MainActivity : AppCompatActivity() {
         //
         setRadioCheckListener(R.id.led_type, RadioGroup.OnCheckedChangeListener { group, checkedId ->
             if (checkedId == R.id.rb_text) {
-                onTextEdit(true)
                 ledView!!.setText("write your message")
             } else {
-                onTextEdit(false)
                 ledView!!.setDrawable(resources.getDrawable(R.drawable.choi))
             }
         })
@@ -94,19 +93,22 @@ class MainActivity : AppCompatActivity() {
             ledView!!.invalidate()
         })
 
-        onTextEdit(true)
+        et_text.addTextChangedListener(textWatcher)
     }
 
-    /*
-     * @brief : on off
-     */
-    private fun onTextEdit(on: Boolean) {
+    private val textWatcher = object:TextWatcher{
+        override fun afterTextChanged(s: Editable?) {
 
-        if(on) {
-            ll_led_type.visibility = View.VISIBLE
-        } else {
-            ll_led_type.visibility = View.INVISIBLE
         }
+
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+        }
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            ledView!!.setText(s.toString())
+        }
+
     }
 
     private fun setRadioCheckListener(id: Int, listener: RadioGroup.OnCheckedChangeListener) {
