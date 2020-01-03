@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,133 +9,175 @@
     tools:context="com.cepiloth.ezledview.app.MainActivity">
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <HorizontalScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottom">
+
+            <com.cepiloth.ezledview.EZLedView
+                android:id="@+id/ledView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimaryDark"
+                android:layout_gravity="center"
+                app:image="@drawable/choi"
+                app:led_color="@color/colorAccent"
+                app:text_size="180dp" />
+        </HorizontalScrollView>
+    </LinearLayout>
+
+
+    <LinearLayout
         android:id="@+id/bottom"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="8dp"
+        android:layout_weight="1"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Led Type" />
-
-        <RadioGroup
-            android:id="@+id/led_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rb_image"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="Image" />
+                android:text="Led Type" />
 
-            <RadioButton
-                android:id="@+id/rb_text"
+
+            <RadioGroup
+                android:id="@+id/led_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Image" />
+
+                <RadioButton
+                    android:id="@+id/rb_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Text" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_led_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/et_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Text" />
-        </RadioGroup>
 
-        <TextView
-            android:id="@+id/et_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Text" />
+            <EditText
+                android:id="@+id/et_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="write your message "/>
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/et_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="write your message "/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Point Type" />
-
-        <RadioGroup
-            android:id="@+id/point_type"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/ll_point_type"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/rb_circle"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="Circle" />
+                android:layout_marginTop="24dp"
+                android:text="Point Type" />
 
-            <RadioButton
-                android:id="@+id/rb_square"
+            <RadioGroup
+                android:id="@+id/point_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Square" />
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/rb_drawable"
+                <RadioButton
+                    android:id="@+id/rb_circle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Circle" />
+
+                <RadioButton
+                    android:id="@+id/rb_square"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Square" />
+
+                <RadioButton
+                    android:id="@+id/rb_drawable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CustomDrawable" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CustomDrawable" />
-        </RadioGroup>
+                android:layout_marginTop="24dp"
+                android:text="Led Size" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Led Size" />
+            <SeekBar
+                android:id="@+id/seekbarCircle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:max="50" />
+        </LinearLayout>
 
-        <SeekBar
-            android:id="@+id/seekbarCircle"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:max="50" />
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Led Space" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Led Space" />
+            <SeekBar
+                android:id="@+id/seekbarSpace"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:max="50" />
+        </LinearLayout>
 
-        <SeekBar
-            android:id="@+id/seekbarSpace"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:max="50" />
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Text Size" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Text Szie" />
+            <SeekBar
+                android:id="@+id/seekbarTextSize"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:max="1000" />
+        </LinearLayout>
 
-        <SeekBar
-            android:id="@+id/seekbarTextSize"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:max="1000" />
     </LinearLayout>
 
-    <HorizontalScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/bottom">
 
-        <com.cepiloth.ezledview.EZLedView
-            android:id="@+id/ledView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimaryDark"
-            android:layout_gravity="center"
-            app:image="@drawable/choi"
-            app:led_color="@color/colorAccent"
-            app:text_size="180dp" />
-    </HorizontalScrollView>
-</RelativeLayout>
+</LinearLayout>

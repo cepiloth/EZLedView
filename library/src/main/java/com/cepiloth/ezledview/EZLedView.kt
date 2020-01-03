@@ -1,22 +1,17 @@
 package com.cepiloth.ezledview
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.Point
+import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Build
-import androidx.annotation.AttrRes
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
-
-import java.util.ArrayList
+import androidx.annotation.AttrRes
+import java.util.*
 
 /**
  * Created by gaoyufei on 2017/5/12.

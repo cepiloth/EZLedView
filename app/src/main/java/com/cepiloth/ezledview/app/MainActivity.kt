@@ -103,11 +103,9 @@ class MainActivity : AppCompatActivity() {
     private fun onTextEdit(on: Boolean) {
 
         if(on) {
-            et_text_view.visibility = View.VISIBLE
-            et_text.visibility = View.VISIBLE
+            ll_led_type.visibility = View.VISIBLE
         } else {
-            et_text_view.visibility = View.INVISIBLE
-            et_text.visibility = View.INVISIBLE
+            ll_led_type.visibility = View.INVISIBLE
         }
     }
 

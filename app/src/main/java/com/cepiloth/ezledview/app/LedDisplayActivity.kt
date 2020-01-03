@@ -7,11 +7,8 @@ import android.os.Handler
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
-import android.widget.HorizontalScrollView
 import androidx.appcompat.app.AppCompatActivity
-import com.cepiloth.ezledview.EZLedView
 import kotlinx.android.synthetic.main.activity_led_display.*
-
 
 class LedDisplayActivity : AppCompatActivity() {
     internal var handler = Handler()
