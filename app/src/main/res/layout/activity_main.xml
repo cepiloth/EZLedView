@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="8dp"
-    tools:context="com.goyourfly.ezledview.app.MainActivity">
+    tools:context="com.cepiloth.ezledview.app.MainActivity">
 
     <LinearLayout
         android:id="@+id/bottom"
@@ -128,7 +128,7 @@
         android:layout_height="match_parent"
         android:layout_above="@id/bottom">
 
-        <com.goyourfly.ezledview.EZLedView
+        <com.cepiloth.ezledview.EZLedView
             android:id="@+id/ledView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

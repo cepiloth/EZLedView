@@ -1,4 +1,4 @@
-package com.goyourfly.ezledview.app
+package com.cepiloth.ezledview.app
 
 import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
@@ -9,7 +9,7 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.HorizontalScrollView
 import androidx.appcompat.app.AppCompatActivity
-import com.goyourfly.ezledview.EZLedView
+import com.cepiloth.ezledview.EZLedView
 
 
 class LedDisplayActivity : AppCompatActivity() {
@@ -39,14 +39,14 @@ class LedDisplayActivity : AppCompatActivity() {
             var str = intent.getStringExtra("type")
 
             if(str == "image") {
-                val drawble:Bitmap = BitmapFactory.decodeResource(resources, R.drawable.choi)
+                val sbitmap:Bitmap = BitmapFactory.decodeResource(resources, R.drawable.choi)
 
                 val paint = Paint()
-                paint.setShader(BitmapShader(drawble, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT))
+                paint.setShader(BitmapShader(sbitmap, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT))
 
-                val bitmap:Bitmap = Bitmap.createBitmap(drawble.width * 2, drawble.height, Bitmap.Config.RGB_565)
+                val bitmap:Bitmap = Bitmap.createBitmap(sbitmap.width * 2, sbitmap.height, Bitmap.Config.RGB_565)
                 val canvas = Canvas(bitmap)
-                val rect = Rect(0,0,drawble.width * 2, drawble.height)
+                val rect = Rect(0,0,sbitmap.width * 2, sbitmap.height)
                 canvas.drawRect(rect, paint)
 
                 val drawable = BitmapDrawable(bitmap)

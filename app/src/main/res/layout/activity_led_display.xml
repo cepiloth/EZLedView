@@ -7,12 +7,12 @@
     android:layout_height="match_parent"
     android:background="@android:color/black"
     android:scrollbars="none"
-    tools:context="com.goyourfly.ezledview.app.LedDisplayActivity">
+    tools:context="com.cepiloth.ezledview.app.LedDisplayActivity">
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent">
 
-        <com.goyourfly.ezledview.EZLedView
+        <com.cepiloth.ezledview.EZLedView
             android:id="@+id/ledView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
