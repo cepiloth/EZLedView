@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="8dp"
     tools:context="com.cepiloth.ezledview.app.MainActivity">
 
     <LinearLayout
@@ -17,16 +16,17 @@
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/colorBlack"
             android:layout_above="@id/bottom">
 
             <com.cepiloth.ezledview.EZLedView
                 android:id="@+id/ledView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/colorPrimaryDark"
+                android:background="@color/colorBlack"
                 android:layout_gravity="center"
                 app:image="@drawable/choi"
-                app:led_color="@color/colorAccent"
+                app:led_color="#3effe8"
                 app:text_size="180dp" />
         </HorizontalScrollView>
     </LinearLayout>
@@ -43,11 +43,17 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Led Type" />
+                android:background="#9b0000"
+                android:text="Led Type"
+                android:textColor="@color/primaryTextColor" />
 
 
             <RadioGroup
@@ -76,31 +82,39 @@
             android:id="@+id/ll_led_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/et_text_view"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Text" />
+                android:background="#9b0000"
+                android:text="Text"
+                android:textColor="@color/primaryTextColor" />
 
             <EditText
                 android:id="@+id/et_text"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="write your message "/>
+                android:text="write your message " />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_point_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="Point Type" />
+                android:background="#9b0000"
+                android:text="Point Type"
+                android:textColor="@color/primaryTextColor" />
 
             <RadioGroup
                 android:id="@+id/point_type"
@@ -131,11 +145,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:background="#9b0000"
                 android:text="Led Size" />
 
             <SeekBar
@@ -147,12 +165,17 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="Led Space" />
+                android:background="#9b0000"
+                android:text="Led Space"
+                android:textColor="@color/primaryTextColor" />
 
             <SeekBar
                 android:id="@+id/seekbarSpace"
@@ -163,12 +186,17 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Text Size" />
+                android:background="#9b0000"
+                android:text="Text Size"
+                android:textColor="@color/primaryTextColor" />
 
             <SeekBar
                 android:id="@+id/seekbarTextSize"
