@@ -13,17 +13,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private var ledView: EZLedView? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        ledView = findViewById<View>(R.id.ledView) as EZLedView
 
-        val circleRadius = findViewById<View>(R.id.seekbarCircle) as SeekBar
-        circleRadius.progress = ledView!!.ledRadius
-
-        circleRadius.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        seekbarCircle.progress = ledView!!.ledRadius
+        seekbarCircle.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 if (progress < 2)
                     return
@@ -40,9 +35,8 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        val ledSpace = findViewById<View>(R.id.seekbarSpace) as SeekBar
-        ledSpace.progress = ledView!!.ledSpace
-        ledSpace.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        seekbarSpace.progress = ledView!!.ledSpace
+        seekbarSpace.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 ledView!!.ledSpace = progress
                 ledView!!.invalidate()
@@ -57,9 +51,8 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        val textSize = findViewById<View>(R.id.seekbarTextSize) as SeekBar
-        textSize.progress = ledView!!.ledTextSize
-        textSize.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        seekbarTextSize.progress = ledView!!.ledTextSize
+        seekbarTextSize.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 ledView!!.ledTextSize = progress
                 ledView!!.requestLayout()
